@@ -29,3 +29,13 @@ Content-Type: application/json
 {
     "name" : "Other Name"
 }
+
+###
+
+POST http://localhost:3000/testApp/login/5e8b9ddbe2a4ec1ae01d1a14
+Content-Type: application/json
+
+{
+    "name": "User",
+    "password": "password"
+}

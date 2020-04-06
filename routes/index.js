@@ -26,8 +26,7 @@ router.get('/:id', getUser, (req, res) => {
 
 router.post('/', async (req, res) => {
     const password = JSON.stringify(req.body.password);
-    const saltRounds = 10;
-    const hashedPassword = bcrypt.hashSync(password, saltRounds);
+    const hashedPassword = bcrypt.hashSync(password, 10);
     const user = new User({
         name: req.body.name,
         password: hashedPassword
@@ -38,6 +37,21 @@ router.post('/', async (req, res) => {
     } 
     catch (err){
         res.status(402).json({ message: err.message });
+    }
+});
+
+// login
+
+router.post('/login/:id', getUser, async (req, res) => {
+    try{
+      if (await bcrypt.compare(JSON.stringify(req.body.password), res.user.password)){
+          res.send('Success!');
+      } else {
+          res.send('Not Allowed');
+      }
+    }
+    catch (err) {
+        res.json({ message: err.message })
     }
 });
 
