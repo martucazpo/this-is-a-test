@@ -8,7 +8,8 @@ POST http://localhost:3000/testApp
 Content-Type: application/json
 
 {
-    "name": "User"
+    "name": "User",
+    "password": "password"
 }
 
 ###
@@ -17,7 +18,7 @@ GET http://localhost:3000/testApp/5e8b5c60ca2f241a8c405594
 
 ###
 
-DELETE  http://localhost:3000/testApp/5e8b61c495fde94c30551205
+DELETE  http://localhost:3000/testApp/5e8b5c60ca2f241a8c405594
 
 
 ###
